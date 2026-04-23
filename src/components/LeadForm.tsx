@@ -27,7 +27,7 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="contact" className="relative ambient-bg-dark py-28 overflow-hidden">
+    <section id="contact" className="relative ambient-bg-dark py-20 lg:py-28 overflow-hidden">
 
       {/* Center glow */}
       <div
@@ -35,7 +35,7 @@ export default function LeadForm() {
         style={{ background: 'radial-gradient(ellipse, rgba(74,108,247,0.07) 0%, transparent 70%)' }}
       />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-10">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="text-center mb-14 fade-up">
           <div className="section-label mb-3">Get In Touch</div>

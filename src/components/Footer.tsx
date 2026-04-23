@@ -30,7 +30,7 @@ export default function Footer() {
         style={{ background: 'linear-gradient(90deg, transparent, rgba(74,108,247,0.3), rgba(6,182,212,0.3), transparent)' }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-16 pb-8">
         <div className="grid lg:grid-cols-6 gap-10 mb-12">
           {/* Brand column */}
           <div className="lg:col-span-2">

@@ -104,7 +104,7 @@ function StatCard({ icon: Icon, value, suffix, label, desc, index }: {
 
 export default function Stats() {
   return (
-    <section id="stats" className="relative ambient-bg-dark py-28 overflow-hidden">
+    <section id="stats" className="relative ambient-bg-dark py-20 lg:py-28 overflow-hidden">
 
       {/* Center glow */}
       <div
@@ -112,7 +112,7 @@ export default function Stats() {
         style={{ background: 'radial-gradient(circle, rgba(74,108,247,0.06) 0%, transparent 70%)' }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-16 fade-up">
           <div className="section-label mb-3">By the Numbers</div>
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">

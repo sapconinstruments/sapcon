@@ -41,8 +41,8 @@ export default function Gallery() {
 
   return (
     <>
-      <section id="gallery" className="relative ambient-bg py-28 overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
+      <section id="gallery" className="relative ambient-bg py-20 lg:py-28 overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
         {/* Header */}
         <div className="text-center mb-16 fade-up">

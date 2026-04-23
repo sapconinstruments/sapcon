@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, ArrowRight, Zap, X } from 'lucide-react';
+import { ArrowRight, Zap, X } from 'lucide-react';
 
 const specs = [
   { label: 'Input Power', value: '230 V AC' },
@@ -187,12 +187,11 @@ export default function FeaturedProduct() {
 
   return (
     <>
-      <section id="products" ref={sectionRef} className="relative ambient-bg-dark h-[300vh]">
-      {/* Sticky wrapper */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center pt-16">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
-          {/* Section header */}
-          <div className="text-center mb-16 fade-up visible">
+      {/* SECTION 1: 3D Product Card with Animation */}
+      <section id="products" ref={sectionRef} className="relative ambient-bg-dark h-[320vh]">
+        {/* Header - Non-sticky */}
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10 pt-16 sm:pt-20 pb-8">
+          <div className="text-center fade-up visible">
             <div className="section-label mb-3">Featured Product</div>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
               Orbit
@@ -208,105 +207,110 @@ export default function FeaturedProduct() {
                 -Lite
               </span>
             </h2>
-
           </div>
+        </div>
 
-          <div className="grid lg:grid-cols-2 gap-6 xl:gap-8 items-start">
-            {/* Left: 3D Animated Canvas */}
-            <div className="fade-left visible h-full flex flex-col items-center justify-center relative">
-
-
-              {/* Scrolling Canvas */}
-              <canvas
-                ref={canvasRef}
-                width={800}
-                height={800}
-                className="w-full h-full min-h-[500px] max-h-[80vh] object-contain relative z-10 cursor-ns-resize"
-              />
-
-            </div>
-
-            {/* Right: Specs + Features */}
-            <div className="fade-right visible">
-              <div className="flex items-center gap-3 mb-6">
+        {/* Sticky wrapper with centered card */}
+        <div className="sticky top-0 h-screen w-full overflow-visible flex items-center justify-center px-4 sm:px-6 lg:px-10">
+          <div className="relative z-10 w-full max-w-7xl">
+            <div className="grid lg:grid-cols-2 gap-8 xl:gap-10 items-center">
+              {/* Left: 3D Product Card */}
+              <div className="fade-left visible flex flex-col items-center justify-center relative">
                 <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #4A6CF7, #06B6D4)' }}
+                  className="w-full max-w-[500px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_24px_80px_rgba(2,6,23,0.35)] p-3 sm:p-4 lg:p-6 xl:p-8 overflow-hidden"
+                  style={{ background: 'linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%)' }}
                 >
-                  <Zap size={18} className="text-white" />
-                </div>
-                <div>
-                  <div className="text-white font-bold text-xl">Technical Specifications</div>
-                  <div className="text-gray-500 text-sm">Industrial Grade Performance</div>
-                </div>
-              </div>
-
-              {/* Specs grid */}
-              <div className="grid grid-cols-2 gap-3 mb-8">
-                {specs.map(({ label, value }) => (
-                  <div
-                    key={label}
-                    className="group relative overflow-hidden rounded-xl p-4 border border-white/5 hover:border-white/30 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-all duration-300 cursor-default"
-                    style={{ background: 'rgba(255,255,255,0.03)' }}
-                  >
-                    <div className="relative z-10">
-                      <div className="text-gray-500 text-[10px] uppercase tracking-wider mb-1.5 transition-colors group-hover:text-gray-300">{label}</div>
-                      <div className="text-white text-sm font-semibold">{value}</div>
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <div>
+                      <div className="text-white font-semibold text-sm uppercase tracking-wider">Orbit-Lite</div>
+                      <div className="text-gray-400 text-xs sm:text-sm">Interactive 3D product view</div>
+                    </div>
+                    <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-gray-300">
+                      Glass Card
                     </div>
                   </div>
-                ))}
+
+                  <div className="rounded-2xl border border-white/10 bg-[#08102A]/70 overflow-hidden">
+                    {/* Scrolling Canvas */}
+                    <canvas
+                      ref={canvasRef}
+                      width={800}
+                      height={800}
+                      className="w-full h-full min-h-[360px] lg:min-h-[480px] max-h-[55vh] lg:max-h-[65vh] object-contain relative z-10 cursor-ns-resize"
+                    />
+                  </div>
+
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="btn-streak btn-dark mt-4 inline-flex w-full items-center justify-center gap-2 text-white font-semibold px-4 py-2.5 rounded-lg border border-white/10 hover:bg-white/5 transition-all whitespace-nowrap"
+                  >
+                    View All Products
+                  </button>
+                </div>
               </div>
 
-              {/* Feature list */}
-              <div className="mb-8 flex flex-col lg:flex-row lg:items-start lg:gap-6">
-                <div className="flex-1">
-                  <div className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Key Features</div>
-                  <div className="space-y-3">
-                    {features.map((feature) => (
-                      <div key={feature} className="flex items-start gap-3">
-                        <CheckCircle2 size={16} className="text-[#4A6CF7] flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
+              {/* Right: Key Features */}
+              <div className="fade-right visible flex flex-col">
+                <div className="mb-8">
+                  <div className="text-white font-semibold mb-6 text-sm uppercase tracking-wider">Key Features</div>
+                  <div className="grid grid-cols-2 gap-3">
+                    {features.map((feature, index) => (
+                      <div
+                        key={feature}
+                        className="group relative overflow-hidden rounded-xl p-4 border border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 cursor-default"
+                        style={{ background: 'rgba(255,255,255,0.03)' }}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#4A6CF7] to-[#06B6D4] flex items-center justify-center flex-shrink-0 text-white text-xs font-bold">
+                            {index + 1}
+                          </div>
+                          <span className="text-gray-300 text-xs sm:text-sm leading-tight pt-0.5">{feature}</span>
+                        </div>
                       </div>
                     ))}
                   </div>
-                </div>
-
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="btn-streak btn-dark mt-5 lg:mt-7 flex items-center justify-center gap-2 text-white font-semibold px-5 py-3.5 rounded-xl border border-white/10 hover:bg-white/5 transition-all whitespace-nowrap"
-                >
-                  View All Products
-                </button>
-              </div>
-
-              {/* CTA */}
-              <div className="flex flex-col gap-3">
-                <div className="flex gap-3">
-                  <a
-                    href="#contact"
-                    className="btn-streak flex-1 flex items-center justify-center gap-2 text-white font-semibold py-3.5 rounded-xl"
-                    style={{ background: 'linear-gradient(135deg, #4A6CF7, #06B6D4)' }}
-                  >
-                    Request Quote <ArrowRight size={16} />
-                  </a>
-                  <a
-                    href="#contact"
-                    className="btn-streak btn-dark flex items-center justify-center gap-2 text-white font-semibold px-5 py-3.5 rounded-xl"
-                  >
-                    Datasheet
-                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Bottom diagonal cut to light */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none z-20"
-        style={{ background: 'linear-gradient(-3deg, #F5F7FA 49.5%, transparent 50%)' }}
-      />
+      {/* SECTION 2: Product Details */}
+      <section className="relative ambient-bg-dark py-16 sm:py-20 lg:py-28">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="fade-right visible flex flex-col">
+            {/* Technical Specifications */}
+            <div className="flex items-center gap-3 mb-6">
+              <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ background: 'linear-gradient(135deg, #4A6CF7, #06B6D4)' }}
+              >
+                <Zap size={18} className="text-white" />
+              </div>
+              <div>
+                <div className="text-white font-bold text-xl">Technical Specifications</div>
+                <div className="text-gray-500 text-sm">Industrial Grade Performance</div>
+              </div>
+            </div>
+
+            {/* Specs grid */}
+            <div className="grid grid-cols-2 gap-3 mb-12">
+              {specs.map(({ label, value }) => (
+                <div
+                  key={label}
+                  className="group relative overflow-hidden rounded-xl p-4 border border-white/5 hover:border-white/30 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-all duration-300 cursor-default"
+                  style={{ background: 'rgba(255,255,255,0.03)' }}
+                >
+                  <div className="relative z-10">
+                    <div className="text-gray-500 text-[10px] uppercase tracking-wider mb-1.5 transition-colors group-hover:text-gray-300">{label}</div>
+                    <div className="text-white text-sm font-semibold">{value}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Products Modal */}
