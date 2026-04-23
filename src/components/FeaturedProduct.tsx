@@ -225,9 +225,6 @@ export default function FeaturedProduct() {
                       <div className="text-white font-semibold text-sm uppercase tracking-wider">Orbit-Lite</div>
                       <div className="text-gray-400 text-xs sm:text-sm">Interactive 3D product view</div>
                     </div>
-                    <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-gray-300">
-                      Glass Card
-                    </div>
                   </div>
 
                   <div className="rounded-2xl border border-white/10 bg-[#08102A]/70 overflow-hidden">
