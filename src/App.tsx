@@ -69,6 +69,32 @@ export default function App() {
     <>
       <CursorGlow />
       <ScrollProgress />
+      <header
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '15px 40px',
+          background: 'rgba(15, 23, 42, 0.8)',
+          backdropFilter: 'blur(12px)',
+        }}
+      >
+        <img
+          src="/logo.png"
+          alt="Sapcon Logo"
+          style={{
+            height: '55px',
+            borderRadius: '12px',
+            filter: 'drop-shadow(0 0 10px rgba(0,150,255,0.6))',
+          }}
+        />
+
+        <nav style={{ color: '#fff' }}>
+          <span style={{ margin: '0 15px' }}>Home</span>
+          <span style={{ margin: '0 15px' }}>Products</span>
+          <span style={{ margin: '0 15px' }}>Contact</span>
+        </nav>
+      </header>
       <main>
         <Hero />
         <FeaturedProduct />
