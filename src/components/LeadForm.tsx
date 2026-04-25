@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Send, MessageCircle, Phone, Mail, MapPin, CheckCircle2 } from 'lucide-react';
+import { Send, Phone, Mail, MapPin, CheckCircle2, Linkedin, Facebook, Youtube } from 'lucide-react';
 
 const contactInfo = [
   { icon: Phone, label: 'Phone', value: '+91-731-4855999' },
@@ -89,19 +89,34 @@ export default function LeadForm() {
                 style={{ background: 'linear-gradient(90deg, transparent, rgba(74,108,247,0.3), transparent)' }}
               />
 
-              {/* WhatsApp CTA */}
+              {/* Social Media Links */}
               <div>
-                <div className="text-gray-400 text-sm mb-4">Quick connect via WhatsApp</div>
-                <a
-                  href="https://wa.me/919XXXXXXXXX"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="whatsapp-glow w-full flex items-center justify-center gap-3 py-3.5 rounded-2xl font-semibold text-white text-sm transition-all duration-300 hover:scale-[1.02]"
-                  style={{ background: 'linear-gradient(135deg, #25D366, #128C7E)' }}
-                >
-                  <MessageCircle size={18} />
-                  Chat on WhatsApp
-                </a>
+                <div className="flex items-center gap-3">
+                  <a
+                    href="https://www.linkedin.com/company/sapcon-instruments-pvt.-ltd./"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-lg shadow-[#4A6CF7]/20 border border-gray-200 hover:border-[#4A6CF7] hover:text-[#4A6CF7] text-gray-500 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-[#4A6CF7]/30"
+                  >
+                    <Linkedin size={18} />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/sapconlevel"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-lg shadow-[#4A6CF7]/20 border border-gray-200 hover:border-[#4A6CF7] hover:text-[#4A6CF7] text-gray-500 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-[#4A6CF7]/30"
+                  >
+                    <Facebook size={18} />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/channel/UCnwfR3EGXaPxw9vpMj7Ongg"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-lg shadow-[#4A6CF7]/20 border border-gray-200 hover:border-[#06B6D4] hover:text-[#06B6D4] text-gray-500 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-[#06B6D4]/30"
+                  >
+                    <Youtube size={18} />
+                  </a>
+                </div>
               </div>
 
             </div>
@@ -143,18 +158,19 @@ export default function LeadForm() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="John Smith"
+                        placeholder="Your Name"
                         className="dark-input w-full rounded-xl px-4 py-3 text-sm"
                       />
                     </div>
                     <div>
-                      <label className="block text-gray-400 text-xs uppercase tracking-wider mb-2">Phone Number</label>
+                      <label className="block text-gray-400 text-xs uppercase tracking-wider mb-2">Phone Number *</label>
                       <input
                         type="tel"
                         name="phone"
+                        required
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+91 98765 43210"
+                        placeholder="Your Number"
                         className="dark-input w-full rounded-xl px-4 py-3 text-sm"
                       />
                     </div>
@@ -168,19 +184,20 @@ export default function LeadForm() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john@company.com"
+                      placeholder="Your Email"
                       className="dark-input w-full rounded-xl px-4 py-3 text-sm"
                     />
                   </div>
 
                   <div className="mb-6">
-                    <label className="block text-gray-400 text-xs uppercase tracking-wider mb-2">Message</label>
+                    <label className="block text-gray-400 text-xs uppercase tracking-wider mb-2">Message *</label>
                     <textarea
                       name="message"
+                      required
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Describe your application, requirements, or questions..."
+                      placeholder="Your Message"
                       className="dark-input w-full rounded-xl px-4 py-3 text-sm resize-none"
                     />
                   </div>

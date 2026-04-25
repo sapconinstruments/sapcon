@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Hero from './components/Hero';
+import Stats from './components/Stats';
 import FeaturedProduct from './components/FeaturedProduct';
 import Industries from './components/Industries';
-import Stats from './components/Stats';
 import Team from './components/Team';
 import RnD from './components/RnD';
 import About from './components/About';
@@ -72,9 +72,9 @@ export default function App() {
       <ScrollProgress />
       <main>
         <Hero />
+        <Stats />
         <FeaturedProduct />
         <Industries />
-        <Stats />
         <RnD />
         <About />
         <Gallery />

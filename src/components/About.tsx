@@ -36,10 +36,11 @@ export default function About() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
+          
           <div className="fade-left">
             <div className="section-label mb-3">About Sapcon</div>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Delivering Value with{' '}
+              RFID-Based Automation Manufacturing {' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #4A6CF7, #06B6D4)',
@@ -48,12 +49,11 @@ export default function About() {
                   backgroundClip: 'text',
                 }}
               >
-                R&D
+                Facility
               </span>
             </h2>
             <p className="text-gray-400 text-lg leading-relaxed mb-6">
-              Sapcon established itself as a premier manufacturer of Vibrating Forks, RF Admittance,
-              and RF Capacitance Level Switches in India. For over 40 years, we have pioneered sensing
+              Sapcon established itself as a premier manufacturer of Vibrating Forks, RF Admittance and RF Capacitance Level Switches in India. For over 40 years, we have pioneered sensing
               technology that solves the toughest industrial challenges.
             </p>
             <p className="text-gray-400 text-base leading-relaxed mb-8">

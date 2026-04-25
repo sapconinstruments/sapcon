@@ -109,11 +109,115 @@ const getClientLogoUrl = (id: number, fallbackUrl?: string): string | undefined 
   return fallbackUrl;
 };
 
-const allClients: Client[] = Object.keys(logoFileById).map((id) => ({
-  id: Number(id),
-  name: '',
-  category: '',
-}));
+const knownClients: Record<number, { name: string; category: string }> = {
+  1: { name: 'Aarti Industries', category: 'Chemicals & Fertilizers' },
+  2: { name: 'Alfa Laval', category: 'Engineering & EPC' },
+  3: { name: 'Ambuja Cement', category: 'Cement & Building Materials' },
+  4: { name: 'ArcelorMittal', category: 'Steel Industry' },
+  5: { name: 'Astral Pipes', category: 'Manufacturing & Industrial' },
+  6: { name: 'Vedanta & BALCO', category: 'Mining & Metals' },
+  7: { name: 'Brahmaputra Cracker', category: 'Chemicals & Fertilizers' },
+  8: { name: 'BARC', category: 'Government & Defense' },
+  9: { name: 'BHEL', category: 'Government & Defense' },
+  10: { name: 'Bunge', category: 'Agriculture & FMCG' },
+  11: { name: 'NMDC', category: 'Mining & Metals' },
+  12: { name: 'NALCO', category: 'Mining & Metals' },
+  13: { name: 'MEIL', category: 'Engineering & EPC' },
+  14: { name: 'Cipla', category: 'Pharmaceuticals & Healthcare' },
+  15: { name: 'Nagarjuna Group', category: 'Manufacturing & Industrial' },
+  16: { name: 'Dabur', category: 'Agriculture & FMCG' },
+  17: { name: 'Dalmia Bharat', category: 'Cement & Building Materials' },
+  18: { name: 'CCI', category: 'Cement & Building Materials' },
+  19: { name: 'Deepak Group', category: 'Chemicals & Fertilizers' },
+  20: { name: 'Desmet Ballestra', category: 'Engineering & EPC' },
+  21: { name: 'Asian Paints', category: 'Paints & Coatings' },
+  22: { name: 'Berger Paints', category: 'Paints & Coatings' },
+  23: { name: 'HEG Limited', category: 'Manufacturing & Industrial' },
+  24: { name: 'GE Power India Limited', category: 'Power & Energy' },
+  25: { name: 'Gharda Chemicals Limited', category: 'Chemicals & Fertilizers' },
+  26: { name: 'Tata Steel', category: 'Steel Industry' },
+  27: { name: 'Gulbrandsen', category: 'Chemicals & Fertilizers' },
+  28: { name: 'IFFCO', category: 'Chemicals & Fertilizers' },
+  29: { name: 'Wonder Cement', category: 'Cement & Building Materials' },
+  30: { name: 'Adani Cement', category: 'Cement & Building Materials' },
+  31: { name: 'ICAM', category: 'Engineering & EPC' },
+  32: { name: 'CAS', category: 'Engineering & EPC' },
+  33: { name: 'Indian Air Force', category: 'Government & Defense' },
+  34: { name: 'Indexel Engineering', category: 'Engineering & EPC' },
+  35: { name: 'SUEZ', category: 'Water & Environment' },
+  36: { name: 'Adani Wilmar', category: 'Agriculture & FMCG' },
+  37: { name: 'Jindal Steel', category: 'Steel Industry' },
+  38: { name: 'JSW Steel', category: 'Steel Industry' },
+  39: { name: 'Jubilant Biosys', category: 'Pharmaceuticals & Healthcare' },
+  40: { name: 'Kansai Nerolac Paints', category: 'Paints & Coatings' },
+  41: { name: 'Bühler Group', category: 'Engineering & EPC' },
+  42: { name: 'DCW Limited', category: 'Chemicals & Fertilizers' },
+  43: { name: 'Engineering Projects (India)', category: 'Engineering & EPC' },
+  44: { name: 'ABEPL', category: 'Infrastructure & Construction' },
+  45: { name: 'Adaptive Engineering', category: 'Engineering & EPC' },
+  46: { name: 'Neoplast', category: 'Manufacturing & Industrial' },
+  47: { name: 'Bhushan Power & Steel', category: 'Steel Industry' },
+  48: { name: 'BEML', category: 'Government & Defense' },
+  49: { name: 'NTPC Limited', category: 'Power & Energy' },
+  50: { name: 'Encore', category: 'Engineering & EPC' },
+  51: { name: 'MOIL Limited', category: 'Mining & Metals' },
+  52: { name: 'NCC Limited', category: 'Infrastructure & Construction' },
+  53: { name: 'NTPC', category: 'Power & Energy' },
+  54: { name: 'PI Industries', category: 'Chemicals & Fertilizers' },
+  55: { name: 'Adani Power', category: 'Power & Energy' },
+  56: { name: 'L&T', category: 'Engineering & EPC' },
+  57: { name: 'Praj Industries', category: 'Engineering & EPC' },
+  58: { name: 'Rallis India Limited', category: 'Chemicals & Fertilizers' },
+  59: { name: 'SAIL', category: 'Steel Industry' },
+  60: { name: 'Shri Ram Fibres Limited', category: 'Chemicals & Fertilizers' },  
+  61: { name: 'GVPR Engineers Limited', category: 'Engineering & EPC' },
+  62: { name: 'SUEZ', category: 'Water & Environment' },
+  63: { name: 'TANGEDCO', category: 'Power & Energy' },
+  64: { name: 'Thermax', category: 'Engineering & EPC' },
+  65: { name: 'thyssenkrupp', category: 'Engineering & EPC' },
+  66: { name: 'TSGENCO', category: 'Power & Energy' },
+  67: { name: 'UltraTech Cement', category: 'Cement & Building Materials' },
+  68: { name: 'United Breweries Limited', category: 'Agriculture & FMCG' },
+  69: { name: 'UPL Limited', category: 'Chemicals & Fertilizers' },
+  70: { name: 'VACman Environmental Solutions', category: 'Engineering & EPC' },
+  71: { name: 'VPRPL', category: 'Engineering & EPC' },
+  72: { name: 'WABAG', category: 'Water & Environment' },
+  73: { name: 'Pidilite Industries', category: 'Chemicals & Fertilizers' },
+  74: { name: 'WBPDCL', category: 'Power & Energy' },
+  75: { name: 'Sun Pharma', category: 'Pharmaceuticals & Healthcare' },
+  76: { name: 'Xperion Automation', category: 'Engineering & EPC' },
+  77: { name: 'Zydus Lifesciences', category: 'Pharmaceuticals & Healthcare' },
+  78: { name: 'Grasim Industries', category: 'Cement & Building Materials' },
+  79: { name: 'Aditya Birla Group', category: 'Conglomerate / Group' },
+  80: { name: 'SCCL', category: 'Mining & Metals' }
+};
+
+const categoriesList = [
+  'Chemicals & Fertilizers',
+  'Cement & Building Materials',
+  'Mining & Metals',
+  'Steel Industry',
+  'Engineering & EPC',
+  'Power & Energy',
+  'Government & Defense',
+  'Agriculture & FMCG',
+  'Pharmaceuticals & Healthcare',
+  'Paints & Coatings',
+  'Water & Environment',
+  'Infrastructure & Construction',
+  'Manufacturing & Industrial',
+  'Conglomerate / Group'
+];
+
+const allClients: Client[] = Object.keys(logoFileById).map((idStr) => {
+  const id = Number(idStr);
+  const known = knownClients[id];
+  return {
+    id,
+    name: known ? known.name : `Partner ${id}`,
+    category: known ? known.category : categoriesList[id % categoriesList.length],
+  };
+});
 const clientRows = splitIntoRows(allClients, 3);
 
 const getInitials = (name: string): string =>
@@ -294,10 +398,19 @@ const ClientLogo: React.FC<ClientLogoProps> = ({ id, name, logoUrl }) => {
 };
 
 const ClientsModalPanel: React.FC<ClientsModalPanelProps> = ({ isOpen, onClose, clients }) => {
-  const filteredClients = clients;
+  const [activeCategory, setActiveCategory] = React.useState('All');
+
+  React.useEffect(() => {
+    if (!isOpen) setActiveCategory('All');
+  }, [isOpen]);
 
   if (!isOpen) return null;
   if (typeof document === 'undefined') return null;
+
+  const allCategories = ['All', ...Array.from(new Set(clients.map(c => c.category)))];
+  const filteredClients = activeCategory === 'All'
+    ? clients
+    : clients.filter(c => c.category === activeCategory);
 
   const modalContent = (
     <>
@@ -359,7 +472,24 @@ const ClientsModalPanel: React.FC<ClientsModalPanelProps> = ({ isOpen, onClose, 
             </button>
           </div>
 
-          <div className="overflow-y-auto max-h-[calc(90vh-200px)]">
+          {/* Category Filters */}
+          <div className="flex flex-wrap gap-2 px-6 md:px-8 py-4 border-b border-blue-500/20 bg-slate-900/50">
+            {allCategories.map(category => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                  activeCategory === category
+                    ? 'bg-blue-500/20 text-blue-300 border border-blue-400/50 shadow-[0_0_10px_rgba(59,130,246,0.2)]'
+                    : 'bg-slate-800/50 text-slate-400 border border-transparent hover:bg-slate-800 hover:text-slate-200'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          <div className="overflow-y-auto max-h-[calc(90vh-260px)]">
             <div className="p-6 md:p-8">
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {filteredClients.map((client, index) => (
@@ -376,9 +506,12 @@ const ClientsModalPanel: React.FC<ClientsModalPanelProps> = ({ isOpen, onClose, 
                         name={client.name}
                         logoUrl={client.logoUrl}
                       />
-                      <p className="text-slate-300 group-hover:text-blue-300 font-semibold text-sm uppercase tracking-wide transition-colors duration-200">
-                        {client.name}
-                      </p>
+                      <div className="mt-1">
+                        <p className="text-slate-300 group-hover:text-blue-300 font-semibold text-sm uppercase tracking-wide transition-colors duration-200">
+                          {client.name}
+                        </p>
+                        <p className="text-slate-500 text-xs mt-0.5">{client.category}</p>
+                      </div>
                     </div>
                   </div>
                 ))}

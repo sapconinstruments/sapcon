@@ -9,7 +9,7 @@ const team = [
     name: 'Ashwin R. Palshikar',
     role: 'Director: Business Development',
     image: '/ashwin.png',
-    desc: 'Leading business development, global strategic growth, and partnerships.'
+    desc: 'Leading business development, global strategic growth and partnerships.'
   }
 ];
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Shield, Award, Cpu, Linkedin, Facebook, Youtube } from 'lucide-react';
+import { ArrowRight, Shield, Award, Cpu } from 'lucide-react';
 
 const typingPhrases = [
   "Precision-Driven Industrial Solutions",
@@ -18,6 +18,7 @@ export default function Hero() {
   const [text, setText] = useState('');
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const currentPhrase = typingPhrases[phraseIndex];
@@ -37,8 +38,20 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [text, isDeleting, phraseIndex]);
 
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <>
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ backgroundImage: "url('/hero.jpeg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+    >
+      {/* Lighter overlay so background stays visible while text remains readable */}
+      <div 
+        className={`absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-[#050B1F]/45 transition-opacity duration-[1500ms] ease-in-out ${isLoaded ? 'opacity-100' : 'opacity-0'}`} 
+      />
 
       <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-14 sm:pb-16 w-full">
         {/* Main hero panel */}
@@ -108,19 +121,26 @@ export default function Hero() {
             </div>
 
             {/* Left: Text content */}
-            <div className="w-full lg:w-auto max-w-xl lg:text-left text-center order-2 lg:order-1">
-              <div className="section-label mb-5 fade-left lg:mx-0 mx-auto">
-                Industrial Intelligence
+            <div className="w-full lg:w-auto max-w-xl lg:text-left text-center order-2 lg:order-1 bg-black/20 backdrop-blur-[1px] rounded-2xl p-4 sm:p-5">
+              <div className="w-fit bg-white/10 border border-white/40 backdrop-blur-sm flex items-center px-4 py-2 rounded-full shadow-sm mb-5 fade-left lg:mx-0 mx-auto">
+                <span className="text-white text-xs font-semibold tracking-wider uppercase">
+                  Industrial Intelligence
+                </span>
               </div>
 
               <h1
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-bold text-[#050B1F] leading-tight mb-4 fade-left tracking-tight"
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-8xl font-bold text-white leading-tight mb-4 fade-left tracking-tight"
                 style={{ transitionDelay: '0.1s' }}
               >
-                Sapcon
+            <span 
+              className="inline-block text-[1.1em] text-white"
+              style={{ color: '#FFFFFF', opacity: 1, textShadow: '0 2px 8px rgba(0, 0, 0, 0.45)' }}
+            >
+              Sapcon
+            </span>
                 <br />
                 <span
-                  className="relative inline-block"
+                  className="relative inline-block" 
                   style={{
                     background: 'linear-gradient(135deg, #4A6CF7, #06B6D4)',
                     WebkitBackgroundClip: 'text',
@@ -133,10 +153,10 @@ export default function Hero() {
               </h1>
 
               <h2
-                className="text-xl lg:text-2xl font-medium text-[#0A0F2C] mb-6 fade-left h-8 lg:h-10 flex items-center justify-center lg:justify-start"
+                className="text-xl lg:text-2xl font-medium text-gray-300 mb-6 fade-left h-8 lg:h-10 flex items-center justify-center lg:justify-start"
                 style={{ transitionDelay: '0.15s' }}
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0A0F2C] to-[#4A6CF7]">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-[#4A6CF7]">
                   {text}
                 </span>
                 <span className="w-[2px] h-[1em] bg-[#06B6D4] ml-1 animate-pulse"></span>
@@ -156,19 +176,6 @@ export default function Hero() {
                 >
                   Explore Products <ArrowRight size={17} />
                 </a>
-
-                {/* Social Icons */}
-                <div className="flex items-center gap-3">
-                  <a href="https://www.linkedin.com/company/sapcon-instruments-pvt.-ltd./" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-lg shadow-[#4A6CF7]/20 border border-gray-200 hover:border-[#4A6CF7] hover:text-[#4A6CF7] text-gray-500 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-[#4A6CF7]/30">
-                    <Linkedin size={18} />
-                  </a>
-                  <a href="https://www.facebook.com/sapconlevel" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-lg shadow-[#4A6CF7]/20 border border-gray-200 hover:border-[#4A6CF7] hover:text-[#4A6CF7] text-gray-500 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-[#4A6CF7]/30">
-                    <Facebook size={18} />
-                  </a>
-                  <a href="https://www.youtube.com/channel/UCnwfR3EGXaPxw9vpMj7Ongg" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full flex items-center justify-center bg-white shadow-lg shadow-[#4A6CF7]/20 border border-gray-200 hover:border-[#06B6D4] hover:text-[#06B6D4] text-gray-500 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-[#06B6D4]/30">
-                    <Youtube size={18} />
-                  </a>
-                </div>
               </div>
 
               {/* Badges */}
@@ -179,10 +186,10 @@ export default function Hero() {
                 {badges.map(({ icon: Icon, label }) => (
                   <div
                     key={label}
-                    className="glass-light flex items-center gap-2 px-4 py-2 rounded-full shadow-sm"
+                    className="bg-white/10 border border-white/40 backdrop-blur-sm flex items-center gap-2 px-4 py-2 rounded-full shadow-sm"
                   >
                     <Icon size={13} className="text-[#4A6CF7]" />
-                    <span className="text-[#0A0F2C] text-xs font-semibold">{label}</span>
+                    <span className="text-white text-xs font-semibold">{label}</span>
                   </div>
                 ))}
               </div>
@@ -192,5 +199,6 @@ export default function Hero() {
       </div>
 
     </section>
+    </>
   );
 }

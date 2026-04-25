@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { Users, Factory, Globe as Globe2, Award } from 'lucide-react';
+import { Users, Factory, Globe as Globe2, Award, CheckCircle } from 'lucide-react';
 
 const stats = [
   { icon: Award, value: 40, suffix: '+', label: 'Years of Experience', desc: 'Trusted industrial expertise' },
-  { icon: Users, value: 15000, suffix: '+', label: 'Clients Worldwide', desc: 'Across 50+ countries' },
+  { icon: Users, value: 100, suffix: 'K+', label: 'Clients Worldwide', desc: 'Across 50+ countries' },
+  { icon: CheckCircle, value: 5000, suffix: '+', label: 'Installations', desc: 'Successful deployments' },
   { icon: Factory, value: 400, suffix: 'K+', label: 'BOM Variants', desc: 'Custom configurations' },
   { icon: Globe2, value: 10, suffix: '%', label: 'Revenue in R&D', desc: 'Annual investment' },
 ];
@@ -43,10 +44,10 @@ function StatCard({ icon: Icon, value, suffix, label, desc, index }: {
   return (
     <div
       ref={ref}
-      className="tilt-card group relative rounded-2xl p-8 overflow-hidden border border-white/5 hover:border-blue-500/20 transition-all duration-400 fade-up"
+      className="tilt-card group relative rounded-2xl p-8 overflow-hidden border border-gray-100 hover:border-[#4A6CF7]/40 transition-all duration-500 fade-up shadow-lg hover:shadow-2xl hover:shadow-[#4A6CF7]/15 hover:-translate-y-2"
       style={{
         transitionDelay: `${index * 0.1}s`,
-        background: 'linear-gradient(160deg, #0D1840 0%, #0A0F2C 100%)',
+        background: 'linear-gradient(160deg, #ffffff 0%, #f8fafc 100%)',
       }}
     >
       {/* Hover gradient */}
@@ -94,8 +95,8 @@ function StatCard({ icon: Icon, value, suffix, label, desc, index }: {
           </span>
         </div>
 
-        <div className="text-white font-semibold text-base mb-1">{label}</div>
-        <div className="text-gray-500 text-sm">{desc}</div>
+        <div className="text-gray-900 font-semibold text-base mb-1">{label}</div>
+        <div className="text-gray-600 text-sm">{desc}</div>
       </div>
 
     </div>
@@ -104,18 +105,18 @@ function StatCard({ icon: Icon, value, suffix, label, desc, index }: {
 
 export default function Stats() {
   return (
-    <section id="stats" className="relative ambient-bg-dark py-20 lg:py-28 overflow-hidden">
+    <section className="relative bg-white py-20 lg:py-28 overflow-hidden">
 
       {/* Center glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(74,108,247,0.06) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(74,108,247,0.08) 0%, transparent 70%)' }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-16 fade-up">
           <div className="section-label mb-3">By the Numbers</div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#050B1F] mb-4">
             Decades of{' '}
             <span
               style={{
@@ -128,12 +129,12 @@ export default function Stats() {
               Industrial Trust
             </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-xl mx-auto">
-            Numbers that reflect our unwavering commitment to quality, precision, and innovation.
+          <p className="text-gray-600 text-lg max-w-xl mx-auto">
+            Numbers that reflect our unwavering commitment to quality, precision and innovation.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {stats.map((stat, i) => (
             <StatCard key={stat.label} {...stat} index={i} />
           ))}
@@ -141,15 +142,15 @@ export default function Stats() {
 
         {/* Manufacturing highlight */}
         <div
-          className="mt-12 rounded-2xl p-8 border border-white/5 fade-up"
+          className="mt-12 rounded-2xl p-8 border border-gray-100 fade-up shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#4A6CF7]/30 hover:shadow-[#4A6CF7]/10"
           style={{ background: 'linear-gradient(135deg, rgba(74,108,247,0.08), rgba(6,182,212,0.04))' }}
         >
           <div className="max-w-4xl mx-auto text-center">
             <div className="section-label mb-3 mx-auto">Manufacturing Excellence</div>
-            <h3 className="text-white text-2xl font-bold mb-3">
+            <h3 className="text-[#050B1F] text-2xl font-bold mb-3">
               Small Batch. Big Precision.
             </h3>
-            <p className="text-gray-400 leading-relaxed text-center">
+            <p className="text-gray-600 leading-relaxed text-center">
               With close to 400K BOMs maintained, Sapcon manufactures level sensors with an MOQ
               as small as one unit — making us the ideal partner for both prototyping and mass production.
             </p>
