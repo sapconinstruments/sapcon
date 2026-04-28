@@ -38,7 +38,7 @@ export default function RnD() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="max-w-4xl mb-16">
           <div className="fade-left">
             <div className="section-label mb-3">Research & Development</div>
             <h2 className="text-4xl lg:text-5xl font-bold text-[#050B1F] mb-5">
@@ -86,34 +86,6 @@ export default function RnD() {
                   <div className="text-gray-500 text-sm">{label}</div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className="fade-right">
-            <div
-              className="relative rounded-3xl overflow-hidden shadow-2xl tilt-card"
-              style={{
-                background: 'linear-gradient(160deg, #0D1438 0%, #0A0F2C 100%)',
-              }}
-            >
-              <img
-                src="https://www.sapconinstruments.com/files/Sapcon-pmi-testing-inpections.webp"
-                alt="PMI Testing"
-                className="relative w-full h-80 object-cover opacity-80"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/3862132/pexels-photo-3862132.jpeg?auto=compress&cs=tinysrgb&w=600';
-                }}
-              />
-              <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(0deg, #0A0F2C 0%, transparent 50%)' }}
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="section-label text-[10px] mb-1">Latest Innovation</div>
-                <div className="text-white font-bold text-lg">PMI Testing Facility</div>
-                <div className="text-gray-400 text-sm">Al-Pb alloy detection via XRF technology</div>
-              </div>
             </div>
           </div>
         </div>

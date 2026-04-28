@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, X, Activity, Droplets, ShieldCheck, Download, Settings, ChevronRight } from 'lucide-react';
 
@@ -16,6 +16,7 @@ const featuredProductInfo = {
   type: 'Tuning Fork Level Switch for Liquids',
   description:
     'A compact liquid level sensor based on the tuning fork principle. It is a cost-effective solution with hygienic pipe fittings for point level detection in tanks, silos, and pipelines to prevent overfill and dry run conditions.',
+  image: '/elixir.jpeg',
   details: [
     'ECTFE coated, polished, and hygienic fork',
     'Extendable probe length from 68 to 3000 mm',
@@ -342,98 +343,18 @@ type ProductItem = {
 
 
 export default function FeaturedProduct() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showHighlightModal, setShowHighlightModal] = useState(false);
   const [activeHighlightId, setActiveHighlightId] = useState(highlightedProducts[0].id);
 
   const activeHighlight = highlightedProducts.find(p => p.id === activeHighlightId) || highlightedProducts[0];
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const section = sectionRef.current;
-    if (!canvas || !section) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const frameCount = 42;
-    const images: HTMLImageElement[] = [];
-
-    // Preload images
-    for (let i = 1; i <= frameCount; i++) {
-      const img = new Image();
-      const frameNum = String(i).padStart(3, '0');
-      img.src = `/3D/ezgif-frame-${frameNum}.png`;
-      img.onload = () => {
-        // Draw the first frame as soon as it's loaded
-        if (i === 1) {
-          drawFrame(1);
-        }
-      };
-      images.push(img);
-    }
-
-    const drawFrame = (index: number) => {
-      const img = images[index - 1];
-      if (!img || !img.complete) return;
-
-      // Maintain aspect ratio while fitting into canvas
-      const hRatio = canvas.width / img.width;
-      const vRatio = canvas.height / img.height;
-      const ratio = Math.min(hRatio, vRatio);
-
-      const centerShift_x = (canvas.width - img.width * ratio) / 2;
-      const centerShift_y = (canvas.height - img.height * ratio) / 2;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(
-        img,
-        0, 0, img.width, img.height,
-        centerShift_x, centerShift_y, img.width * ratio, img.height * ratio
-      );
-    };
-
-    const handleScroll = () => {
-      const rect = section.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Pin starts when rect.top <= 0
-      // Total scrollable track = section height - window height
-      const totalScroll = rect.height - windowHeight;
-      const scrolled = -rect.top;
-
-      let progress = 0;
-      if (scrolled > 0) {
-        progress = scrolled / totalScroll;
-      }
-
-      const clampedProgress = Math.min(Math.max(progress, 0), 1);
-
-      // Map progress to frame index (1 to 42)
-      let frameIndex = Math.floor(clampedProgress * frameCount) + 1;
-      frameIndex = Math.min(Math.max(frameIndex, 1), frameCount);
-
-      requestAnimationFrame(() => drawFrame(frameIndex));
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    // Initial draw call
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <>
-      {/* SECTION 1: 3D Product Card with Animation */}
-      <section id="products" ref={sectionRef} className="relative ambient-bg-dark h-[320vh]">
-        {/* Header - Non-sticky */}
-        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10 pt-16 sm:pt-20 pb-8">
-          <div className="text-center fade-up visible">
+      {/* SECTION 1: Featured Product Card */}
+      <section id="products" className="relative ambient-bg-dark py-20 lg:py-28">
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10">
+          <div className="text-center fade-up visible mb-12 sm:mb-16">
             <div className="section-label mb-3">Featured Product</div>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             Elixir
@@ -450,13 +371,10 @@ export default function FeaturedProduct() {
               </span>
             </h2>
           </div>
-        </div>
 
-        {/* Sticky wrapper with centered card */}
-        <div className="sticky top-0 h-screen w-full overflow-visible flex items-center justify-center px-4 sm:px-6 lg:px-10">
-          <div className="relative z-10 w-full max-w-7xl">
+          <div className="relative z-10 w-full max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-8 xl:gap-10 items-center">
-              {/* Left: 3D Product Card */}
+              {/* Left: Featured Product Card */}
               <div className="fade-left visible flex flex-col items-center justify-center relative">
                 <div
                   className="w-full max-w-[500px] rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_24px_80px_rgba(2,6,23,0.35)] p-3 sm:p-4 lg:p-6 xl:p-8 overflow-hidden"
@@ -473,13 +391,11 @@ export default function FeaturedProduct() {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-white/10 bg-[#08102A]/70 overflow-hidden">
-                    {/* Scrolling Canvas */}
-                    <canvas
-                      ref={canvasRef}
-                      width={800}
-                      height={800}
-                      className="w-full h-full min-h-[360px] lg:min-h-[480px] max-h-[55vh] lg:max-h-[65vh] object-contain relative z-10 cursor-ns-resize"
+                  <div className="rounded-2xl border border-white/10 bg-[#08102A]/70 overflow-hidden flex items-center justify-center">
+                    <img
+                      src={featuredProductInfo.image}
+                      alt={featuredProductInfo.name}
+                      className="w-full h-full min-h-[360px] lg:min-h-[480px] max-h-[55vh] lg:max-h-[65vh] object-cover relative z-10 hover:scale-105 transition-transform duration-500"
                     />
                   </div>
 
