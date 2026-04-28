@@ -4,7 +4,8 @@ import { Send, Phone, Mail, MapPin, CheckCircle2, Linkedin, Facebook, Youtube } 
 const contactInfo = [
   { icon: Phone, label: 'Phone', value: '+91-731-4855999' },
   { icon: Mail, label: 'Email', value: 'web@sapcon.in' },
-  { icon: MapPin, label: 'Address', value: '131, Palshikar Colony, Indore, Madhya Pradesh 452007, India' },
+  { icon: MapPin, label: 'Office Address', value: '131, Palshikar Colony, Indore, Madhya Pradesh 452007, India' },
+  { icon: MapPin, label: 'Plant Address', value: 'C44, Sanwer Road Industrial Area, Indore, Madhya Pradesh 452015, India' },
 ];
 
 export default function LeadForm() {

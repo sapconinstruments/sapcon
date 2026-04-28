@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Maximize2, X, Grid } from 'lucide-react';
 
-const images = Array.from({ length: 19 }, (_, i) => ({
+const images = Array.from({ length: 34 }, (_, i) => ({
   id: i + 1,
-  src: `/${i + 1}.jpeg`
+  src: `/Installations/${i + 1}.jpeg`
 }));
 
 const stallImages = Array.from({ length: 16 }, (_, i) => ({
