@@ -10,6 +10,12 @@ const team = [
     role: 'Director: Business Development',
     image: '/ashwin.png',
     desc: 'Leading business development, global strategic growth and partnerships.'
+  },
+  {
+    name: 'Mr. Dhananjaya Palshikar',
+    role: 'R&D Head and Production Head',
+    image: '/dhananjay.png',
+    desc: 'Leading research, development and production operations to drive continuous innovation.'
   }
 ];
 
@@ -40,7 +46,7 @@ export default function Team() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid sm:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {team.map((member, i) => (
             <div
               key={member.name}
