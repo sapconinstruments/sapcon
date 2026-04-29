@@ -3,8 +3,8 @@ import { Users, Factory, Globe as Globe2, Award, CheckCircle } from 'lucide-reac
 
 const stats = [
   { icon: Award, value: 40, suffix: '+', label: 'Years of Experience', desc: 'Trusted industrial expertise' },
-  { icon: Users, value: 100, suffix: 'K+', label: 'Clients Worldwide', desc: 'Across 50+ countries' },
-  { icon: CheckCircle, value: 5000, suffix: '+', label: 'Installations', desc: 'Successful deployments' },
+  { icon: Users, value: 10, suffix: 'K+', label: 'Clients Worldwide', desc: 'Across 50+ countries' },
+  { icon: CheckCircle, value: 100, suffix: 'K+', label: 'Installations', desc: 'Successful deployments' },
   { icon: Factory, value: 400, suffix: 'K+', label: 'BOM Variants', desc: 'Custom configurations' },
   { icon: Globe2, value: 10, suffix: '%', label: 'Revenue in R&D', desc: 'Annual investment' },
 ];

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, X, Activity, Droplets, ShieldCheck, Download, Settings, ChevronRight } from 'lucide-react';
+import { ArrowRight, X, Activity, Droplets, ShieldCheck, Settings } from 'lucide-react';
 
 const features = [
   'Compact tuning fork sensor for liquids',
@@ -537,15 +537,6 @@ export default function FeaturedProduct() {
                         <div className="text-white font-bold text-xl sm:text-2xl drop-shadow-md">{activeHighlight.highlight}</div>
                       </div>
                     </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                      <a href="#contact" onClick={() => setShowHighlightModal(false)} className="btn-streak flex items-center justify-center gap-2 bg-gradient-to-r from-[#4A6CF7] to-[#06B6D4] text-white font-bold py-3.5 px-4 rounded-xl text-sm transition-transform hover:-translate-y-1 shadow-lg shadow-[#4A6CF7]/20">
-                        Request Quote
-                      </a>
-                      <button className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold py-3.5 px-4 rounded-xl text-sm transition-all hover:-translate-y-1">
-                        <Download size={16} /> Datasheet
-                      </button>
-                    </div>
                   </div>
 
                   {/* Left Column: Technical Details */}
@@ -606,9 +597,6 @@ export default function FeaturedProduct() {
                         <p className="text-xs text-gray-400 leading-relaxed mb-4">
                           {activeHighlight.principle}
                         </p>
-                        <a href="#contact" onClick={() => setShowHighlightModal(false)} className="inline-flex items-center gap-1 text-[#06B6D4] text-xs font-bold uppercase tracking-wider hover:text-white transition-colors">
-                          View Installation Diagram <ChevronRight size={14} />
-                        </a>
                       </div>
                     </div>
 

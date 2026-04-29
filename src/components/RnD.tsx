@@ -1,4 +1,4 @@
-import { Microscope, FlaskConical, ChevronRight } from 'lucide-react';
+import { Microscope, FlaskConical, ChevronRight, ShieldCheck } from 'lucide-react';
 
 const timeline = [
   {
@@ -30,6 +30,7 @@ const timeline = [
 const highlights = [
   { icon: Microscope, label: 'In-house Testing Lab', value: 'PMI-XRF Certified' },
   { icon: FlaskConical, label: 'Annual R&D Investment', value: '10% of Revenue' },
+  { icon: ShieldCheck, label: '2026', value: 'ATEX Certification' },
 ];
 
 export default function RnD() {
@@ -60,7 +61,7 @@ export default function RnD() {
             </p>
 
             {/* Highlight cards */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {highlights.map(({ icon: Icon, label, value }) => (
                 <div
                   key={label}
