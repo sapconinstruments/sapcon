@@ -3,32 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/preview.jpg" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO -->
-    <title>Sapcon Instruments — Industrial Level Sensing Solutions</title>
-    <meta name="description" content="India's premier manufacturer of level switches, transmitters, and speed monitoring instruments. 40+ years of industrial expertise." />
+    <title>SAPCON Instruments | Industrial Instrumentation & Level Measurement</title>
+    <meta name="description" content="SAPCON Instruments is an industrial instrumentation company specializing in level measurement, speed monitoring and process measurement solutions for industries worldwide." />
+    <link rel="canonical" href="https://sapconinstruments.netlify.app/" />
 
-    <!-- OPEN GRAPH (WhatsApp / LinkedIn / Facebook) -->
-    <meta property="og:title" content="Sapcon Instruments" />
-    <meta property="og:description" content="India's premier manufacturer of level switches, transmitters, and speed monitoring instruments. 40+ years of industrial expertise." />
-    <meta property="og:image" content="https://sapconinstruments.netlify.app/preview.jpg?v=2" />
+    <!-- OPEN GRAPH (LinkedIn / Facebook / WhatsApp) -->
+    <meta property="og:title" content="SAPCON Instruments | Industrial Instrumentation & Level Measurement" />
+    <meta property="og:description" content="SAPCON Instruments is an industrial instrumentation company specializing in level measurement, speed monitoring and process measurement solutions for industries worldwide." />
+    <meta property="og:image" content="https://sapconinstruments.netlify.app/preview.jpg" />
     <meta property="og:url" content="https://sapconinstruments.netlify.app/" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SAPCON Instruments" />
 
     <!-- TWITTER -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sapcon Instruments" />
-    <meta name="twitter:description" content="Industrial Level Sensing Solutions" />
-    <meta name="twitter:image" content="https://sapconinstruments.netlify.app/preview.jpg?v=2" />
+    <meta name="twitter:title" content="SAPCON Instruments | Industrial Instrumentation & Level Measurement" />
+    <meta name="twitter:description" content="SAPCON Instruments is an industrial instrumentation company specializing in level measurement, speed monitoring and process measurement solutions for industries worldwide." />
+    <meta name="twitter:image" content="https://sapconinstruments.netlify.app/preview.jpg" />
 
-    <!-- Optional (better mobile preview) -->
     <meta name="theme-color" content="#050B1F" />
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBG797JFJC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MBG797JFJC');
+    </script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://sapconinstruments.netlify.app/#organization",
+          "name": "SAPCON Instruments",
+          "url": "https://www.sapconinstruments.com/",
+          "logo": "https://sapconinstruments.netlify.app/preview.jpg",
+          "description": "SAPCON Instruments is an industrial instrumentation company specializing in level measurement, speed monitoring and process measurement solutions for industries worldwide.",
+          "sameAs": [
+            "https://www.linkedin.com/company/sapcon-instruments-pvt.-ltd.",
+            "https://www.youtube.com/user/sapconinstruments",
+            "https://www.facebook.com/SapconInstruments/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://sapconinstruments.netlify.app/#website",
+          "url": "https://sapconinstruments.netlify.app/",
+          "name": "SAPCON Instruments Portfolio",
+          "publisher": {
+            "@id": "https://sapconinstruments.netlify.app/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://sapconinstruments.netlify.app/#webpage",
+          "url": "https://sapconinstruments.netlify.app/",
+          "name": "SAPCON Instruments | Industrial Instrumentation & Level Measurement",
+          "isPartOf": {
+            "@id": "https://sapconinstruments.netlify.app/#website"
+          },
+          "about": {
+            "@id": "https://sapconinstruments.netlify.app/#organization"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- SEO Fallback Content for Crawlers (Improves indexability before JS executes) -->
+      <div style="display:none;" id="seo-fallback-content">
+        <h1>SAPCON Instruments — Industrial Instrumentation & Level Measurement Solutions</h1>
+        <p>SAPCON Instruments is an industrial instrumentation company specializing in level measurement, speed monitoring and process measurement solutions for industries worldwide.</p>
+        <p>Visit our official website at <a href="https://www.sapconinstruments.com/">www.sapconinstruments.com</a> for our complete product range.</p>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

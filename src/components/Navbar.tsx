@@ -76,11 +76,13 @@ export default function Navbar() {
               Get a Quote
             </a>
             <a
-              href="#contact"
+              href="https://www.sapconinstruments.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-streak text-white text-sm font-semibold px-5 py-2.5 rounded-lg cursor-pointer"
               style={{ background: 'linear-gradient(135deg, #4A6CF7, #06B6D4)' }}
             >
-              Contact Us
+              Explore Official Website
             </a>
           </div>
 

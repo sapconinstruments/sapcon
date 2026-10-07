@@ -257,6 +257,9 @@ const ClientItem: React.FC<ClientItemProps> = ({ id, name, logoUrl }) => {
               src={imgSrc}
               alt={`${name} logo`}
               loading="lazy"
+              decoding="async"
+              width="64"
+              height="64"
               className="h-14 w-14 md:h-16 md:w-16 rounded-2xl object-contain bg-white p-1.5"
               onError={() => {
                 if (imgSrc !== fallbackLogoUrl) {

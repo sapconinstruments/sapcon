@@ -16,7 +16,7 @@ const featuredProductInfo = {
   type: 'Tuning Fork Level Switch for Liquids',
   description:
     'A compact liquid level sensor based on the tuning fork principle. It is a cost-effective solution with hygienic pipe fittings for point level detection in tanks, silos, and pipelines to prevent overfill and dry run conditions.',
-  image: '/elixir.jpeg',
+  image: '/elixir.png',
   details: [
     'ECTFE coated, polished, and hygienic fork',
     'Extendable probe length from 68 to 3000 mm',
@@ -381,7 +381,7 @@ export default function FeaturedProduct() {
           <div className="text-center fade-up visible mb-12 sm:mb-16">
             <div className="section-label mb-3">Featured Product</div>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
-            Elixir
+              Elixir
               <span
                 className="ml-3"
                 style={{
@@ -420,6 +420,10 @@ export default function FeaturedProduct() {
                       src={featuredProductInfo.image}
                       alt={featuredProductInfo.name}
                       className="w-full h-full min-h-[360px] lg:min-h-[480px] max-h-[55vh] lg:max-h-[65vh] object-cover relative z-10 hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                      width="600"
+                      height="800"
                     />
                   </div>
 
@@ -496,7 +500,7 @@ export default function FeaturedProduct() {
               className="relative w-full max-w-7xl bg-[#0D1840] border border-white/10 rounded-2xl shadow-2xl overflow-hidden my-auto"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4A6CF7] to-[#06B6D4]" />
-              
+
               <button
                 onClick={() => setShowHighlightModal(false)}
                 className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all z-20"
@@ -519,7 +523,7 @@ export default function FeaturedProduct() {
                       <div className="relative z-20 mb-3 flex flex-wrap gap-2">
                         {activeHighlight.certs.map(cert => (
                           <span key={cert} className="px-3 py-1 bg-[#0A0F2C]/80 backdrop-blur-md border border-white/20 rounded-full text-xs font-semibold text-white flex items-center gap-1 shadow-lg">
-                            <ShieldCheck size={12} className="text-green-400"/> {cert}
+                            <ShieldCheck size={12} className="text-green-400" /> {cert}
                           </span>
                         ))}
                       </div>
@@ -529,6 +533,10 @@ export default function FeaturedProduct() {
                           src={activeHighlight.image}
                           alt={activeHighlight.name}
                           className="w-auto h-auto max-w-full max-h-[340px] sm:max-h-[380px] lg:max-h-[420px] object-contain object-center transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_10px_40px_rgba(6,182,212,0.45)]"
+                          loading="lazy"
+                          decoding="async"
+                          width="400"
+                          height="400"
                         />
                       </div>
 
@@ -541,7 +549,7 @@ export default function FeaturedProduct() {
 
                   {/* Left Column: Technical Details */}
                   <div className="lg:col-span-7 space-y-4 sm:space-y-5 lg:space-y-6 order-2 lg:order-1">
-                    
+
                     {/* Features & Benefits */}
                     <div className="bg-[#0A0F2C] border border-white/5 rounded-3xl p-5 sm:p-6 lg:p-8 hover:border-white/10 transition-colors">
                       <h3 className="text-white font-bold text-xl mb-6 flex items-center gap-2">
@@ -624,7 +632,7 @@ export default function FeaturedProduct() {
               className="relative w-full max-w-4xl bg-[#0D1840] border border-white/10 rounded-2xl shadow-2xl overflow-hidden my-auto"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4A6CF7] to-[#06B6D4]" />
-              
+
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all z-10"

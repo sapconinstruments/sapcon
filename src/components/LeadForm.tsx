@@ -22,9 +22,25 @@ export default function LeadForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise(r => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const response = await fetch("https://formspree.io/f/xwvykygw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -54,7 +70,7 @@ export default function LeadForm() {
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-xl mx-auto">
-           By contacting Sapcon Instruments Pvt Ltd, via the contact form or the above phone numbers, you agree to be contacted by email or telephone(via 3rd Party Service) by our representative
+            By contacting Sapcon Instruments Pvt Ltd, via the contact form or the above phone numbers, you agree to be contacted by email or telephone(via 3rd Party Service) by our representative
           </p>
         </div>
 

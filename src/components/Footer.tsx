@@ -8,9 +8,9 @@ const footerLinks = {
 };
 
 const socials = [
-  { icon: Linkedin, label: 'LinkedIn', href: '#' },
-  { icon: Facebook, label: 'Facebook', href: '#' },
-  { icon: Youtube, label: 'YouTube', href: '#' },
+  { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/company/sapcon-instruments-pvt.-ltd.' },
+  { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/SapconInstruments/' },
+  { icon: Youtube, label: 'YouTube', href: 'https://www.youtube.com/user/sapconinstruments' },
 ];
 
 export default function Footer() {

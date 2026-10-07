@@ -113,6 +113,9 @@ export default function Hero() {
                         src="/logo.png"
                         alt="Sapcon Logo"
                         className="w-full h-full object-contain scale-[1.15]"
+                        width="288"
+                        height="288"
+                        fetchPriority="high"
                       />
                     </div>
                   </div>
@@ -136,7 +139,7 @@ export default function Hero() {
               className="inline-block text-[1.1em] text-white"
               style={{ color: '#FFFFFF', opacity: 1, textShadow: '0 2px 8px rgba(0, 0, 0, 0.45)' }}
             >
-              Sapcon
+              SAPCON
             </span>
                 <br />
                 <span
@@ -150,6 +153,7 @@ export default function Hero() {
                 >
                   Instruments
                 </span>
+                <span className="sr-only"> — Industrial Instrumentation & Level Measurement Solutions</span>
               </h1>
 
               <h2

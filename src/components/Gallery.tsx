@@ -354,8 +354,12 @@ export default function Gallery() {
                   >
                     <img
                       src={img.src}
-                      alt={`Installation ${img.id}`}
+                      alt={`SAPCON Instruments Installation ${img.id}`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                      loading="lazy"
+                      decoding="async"
+                      width="600"
+                      height="400"
                     />
                   </motion.div>
                 ))}
@@ -439,9 +443,13 @@ export default function Gallery() {
                   >
                     <img
                       src={img.src}
-                      alt={`Stall Photo ${img.id}`}
+                      alt={`SAPCON Instruments Stall Photo ${img.id}`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
                       onError={(e) => { e.currentTarget.src = 'https://images.pexels.com/photos/236750/pexels-photo-236750.jpeg?auto=compress&cs=tinysrgb&w=600' }}
+                      loading="lazy"
+                      decoding="async"
+                      width="600"
+                      height="400"
                     />
                   </motion.div>
                 ))}

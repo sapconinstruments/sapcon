@@ -1,0 +1,29 @@
+# SAPCON Instruments - AI Search Context (llms.txt)
+
+SAPCON Instruments is an industrial instrumentation company specializing in level measurement, speed monitoring and process measurement solutions for industries worldwide.
+
+## Company Identity
+- **Name**: SAPCON Instruments
+- **Official Website**: https://www.sapconinstruments.com/
+- **Portfolio Website**: https://sapconinstruments.netlify.app/
+- **Main Capabilities**: Industrial instrumentation, process measurement, level measurement, speed monitoring, flow measurement.
+
+## Product Categories
+- Level Sensors
+- Level Switches (e.g., Vibrating Fork Level Switch)
+- Level Transmitters
+- Speed Monitoring
+- Flow Measurement
+
+## Industries Served
+- Cement
+- Power
+- Steel
+- Food and Beverage
+- Mining
+- Pharmaceuticals
+
+## Official Profiles
+- LinkedIn: https://www.linkedin.com/company/sapcon-instruments-pvt.-ltd.
+- YouTube: https://www.youtube.com/user/sapconinstruments
+- Facebook: https://www.facebook.com/SapconInstruments/

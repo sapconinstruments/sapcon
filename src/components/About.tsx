@@ -216,8 +216,12 @@ export default function About() {
                   >
                     <img
                       src={img.src}
-                      alt={`Installation ${img.id}`}
+                      alt={`SAPCON Instruments Installation ${img.id}`}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                      loading="lazy"
+                      decoding="async"
+                      width="600"
+                      height="400"
                     />
                   </motion.div>
                 ))}
