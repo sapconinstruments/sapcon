@@ -27,7 +27,7 @@ export default function Gallery() {
   const [showGrid, setShowGrid] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
   const [showStallPhotos, setShowStallPhotos] = useState(false);
-  const [previewImage, setPreviewImage] = useState<{id: number, src: string} | null>(null);
+  const [previewImage, setPreviewImage] = useState<{ id: number, src: string } | null>(null);
 
   // Auto-slider logic for installations
   useEffect(() => {
@@ -108,218 +108,218 @@ export default function Gallery() {
       <section id="gallery" className="relative ambient-bg py-20 lg:py-28 overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
-        {/* Header */}
-        <div className="text-center mb-16 fade-up">
-          <div className="section-label mb-3">Media & Gallery</div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#050B1F] mb-4 tracking-tight">
-            Installations, Plant Tour & Exhibition Stalls
-          </h2>
+          {/* Header */}
+          <div className="text-center mb-16 fade-up">
+            {/* <div className="section-label mb-3">Media & Gallery</div> */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#050B1F] mb-4 tracking-tight">
+              Installations, Plant Tour & Exhibition Stalls
+            </h2>
+          </div>
+
+          {/* 3 Cards Uniform Grid */}
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
+
+            {/* Installations Card */}
+            <div
+              className="relative flex flex-col rounded-3xl overflow-hidden border border-[#4A6CF7]/20 shadow-2xl shadow-blue-900/10 fade-up hover:border-[#4A6CF7]/40 transition-colors duration-300"
+              style={{ background: 'linear-gradient(160deg, #0D1840 0%, #0A0F2C 100%)' }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-black group cursor-pointer" onClick={() => setShowGrid(true)}>
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentIndex}
+                    src={images[currentIndex].src}
+                    alt={`Installation ${images[currentIndex].id}`}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80"
+                  />
+                </AnimatePresence>
+
+                {/* Top Progress Bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 z-20">
+                  <motion.div
+                    key={currentIndex + (isHovered ? "-paused" : "")}
+                    className="h-full bg-gradient-to-r from-[#4A6CF7] to-[#06B6D4]"
+                    initial={{ width: "0%" }}
+                    animate={{ width: isHovered ? "100%" : "100%" }}
+                    transition={{ duration: isHovered ? 0 : 3, ease: "linear" }}
+                    style={{ width: isHovered ? "100%" : "auto" }}
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F2C] via-transparent to-transparent pointer-events-none z-10" />
+                {/* Slider Controls (Arrows) */}
+                <div className="absolute inset-0 flex items-center justify-between px-3 z-20 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <button
+                    onClick={handlePrev}
+                    className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#4A6CF7] transition-all transform hover:scale-110"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#4A6CF7] transition-all transform hover:scale-110"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
+
+                <button
+                  onClick={(e) => { e.stopPropagation(); setPreviewImage(images[currentIndex]); }}
+                  className="absolute top-4 right-4 z-20 w-10 h-10 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+                >
+                  <Maximize2 size={18} />
+                </button>
+              </div>
+
+              <div className="p-6 flex flex-col flex-1 border-t border-white/10 relative z-20">
+                <h3 className="text-xl font-bold text-white mb-2">Installations</h3>
+                <p className="text-sm text-gray-400 mb-6 flex-1">Explore our products deployed in real-world industrial environments.</p>
+                <button
+                  onClick={() => setShowGrid(true)}
+                  className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 px-5 py-3 rounded-xl transition-all border border-white/10 hover:border-white/30"
+                >
+                  <Grid size={16} /> View Gallery
+                </button>
+              </div>
+            </div>
+
+            {/* Plant Video Card */}
+            <div
+              className="relative flex flex-col rounded-3xl overflow-hidden border border-[#06B6D4]/20 shadow-2xl shadow-cyan-900/10 fade-up hover:border-[#06B6D4]/40 transition-colors duration-300"
+              style={{ background: 'linear-gradient(160deg, #0D1840 0%, #0A0F2C 100%)', transitionDelay: '0.1s' }}
+              onMouseEnter={() => setIsVideoHovered(true)}
+              onMouseLeave={() => setIsVideoHovered(false)}
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-black group cursor-pointer" onClick={() => setShowVideo(true)}>
+                <AnimatePresence mode="wait">
+                  <motion.video
+                    key={currentVideoIndex}
+                    src={plantVideos[currentVideoIndex].src}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80"
+                  />
+                </AnimatePresence>
+
+                {/* Top Progress Bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 z-20">
+                  <motion.div
+                    key={currentVideoIndex + (isVideoHovered ? "-paused" : "")}
+                    className="h-full bg-gradient-to-r from-[#06B6D4] to-[#4A6CF7]"
+                    initial={{ width: "0%" }}
+                    animate={{ width: isVideoHovered ? "100%" : "100%" }}
+                    transition={{ duration: isVideoHovered ? 0 : 5, ease: "linear" }}
+                    style={{ width: isVideoHovered ? "100%" : "auto" }}
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F2C] via-transparent to-transparent pointer-events-none z-10" />
+                {/* Slider Controls (Arrows) */}
+                <div className="absolute inset-0 flex items-center justify-between px-3 z-20 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <button
+                    onClick={handlePrevVideo}
+                    className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#06B6D4] transition-all transform hover:scale-110"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={handleNextVideo}
+                    className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#06B6D4] transition-all transform hover:scale-110"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="p-6 flex flex-col flex-1 border-t border-white/10 relative z-20">
+                <h3 className="text-xl font-bold text-white mb-2">Plant Tour</h3>
+                <p className="text-sm text-gray-400 mb-6 flex-1">Take a look inside our state-of-the-art manufacturing facility.</p>
+                <button
+                  onClick={() => setShowVideo(true)}
+                  className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 px-5 py-3 rounded-xl transition-all border border-white/10 hover:border-white/30"
+                >
+                  Watch Videos
+                </button>
+              </div>
+            </div>
+
+            {/* Stall Photos Card */}
+            <div
+              className="relative flex flex-col rounded-3xl overflow-hidden border border-[#4A6CF7]/20 shadow-2xl shadow-blue-900/10 fade-up hover:border-[#4A6CF7]/40 transition-colors duration-300"
+              style={{ background: 'linear-gradient(160deg, #0D1840 0%, #0A0F2C 100%)', transitionDelay: '0.2s' }}
+              onMouseEnter={() => setIsStallHovered(true)}
+              onMouseLeave={() => setIsStallHovered(false)}
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-black group cursor-pointer" onClick={() => setShowStallPhotos(true)}>
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentStallIndex}
+                    src={stallImages[currentStallIndex].src}
+                    alt={`Stall Photo ${stallImages[currentStallIndex].id}`}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80"
+                    onError={(e) => { e.currentTarget.src = 'https://images.pexels.com/photos/236750/pexels-photo-236750.jpeg?auto=compress&cs=tinysrgb&w=600' }}
+                  />
+                </AnimatePresence>
+
+                {/* Top Progress Bar */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 z-20">
+                  <motion.div
+                    key={currentStallIndex + (isStallHovered ? "-paused" : "")}
+                    className="h-full bg-gradient-to-r from-[#4A6CF7] to-[#06B6D4]"
+                    initial={{ width: "0%" }}
+                    animate={{ width: isStallHovered ? "100%" : "100%" }}
+                    transition={{ duration: isStallHovered ? 0 : 4, ease: "linear" }}
+                    style={{ width: isStallHovered ? "100%" : "auto" }}
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F2C] via-transparent to-transparent pointer-events-none z-10" />
+                {/* Slider Controls (Arrows) */}
+                <div className="absolute inset-0 flex items-center justify-between px-3 z-20 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <button
+                    onClick={handlePrevStall}
+                    className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#4A6CF7] transition-all transform hover:scale-110"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={handleNextStall}
+                    className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#4A6CF7] transition-all transform hover:scale-110"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="p-6 flex flex-col flex-1 border-t border-white/10 relative z-20">
+                <h3 className="text-xl font-bold text-white mb-2">Exhibition/ Events</h3>
+                <p className="text-sm text-gray-400 mb-6 flex-1">Check out our booths and product showcases from global expos.</p>
+                <button
+                  onClick={() => setShowStallPhotos(true)}
+                  className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 px-5 py-3 rounded-xl transition-all border border-white/10 hover:border-white/30"
+                >
+                  View Photos
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-
-        {/* 3 Cards Uniform Grid */}
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
-
-          {/* Installations Card */}
-          <div
-            className="relative flex flex-col rounded-3xl overflow-hidden border border-[#4A6CF7]/20 shadow-2xl shadow-blue-900/10 fade-up hover:border-[#4A6CF7]/40 transition-colors duration-300"
-            style={{ background: 'linear-gradient(160deg, #0D1840 0%, #0A0F2C 100%)' }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-black group cursor-pointer" onClick={() => setShowGrid(true)}>
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentIndex}
-                  src={images[currentIndex].src}
-                  alt={`Installation ${images[currentIndex].id}`}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80"
-                />
-              </AnimatePresence>
-
-              {/* Top Progress Bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 z-20">
-                <motion.div
-                  key={currentIndex + (isHovered ? "-paused" : "")}
-                  className="h-full bg-gradient-to-r from-[#4A6CF7] to-[#06B6D4]"
-                  initial={{ width: "0%" }}
-                  animate={{ width: isHovered ? "100%" : "100%" }}
-                  transition={{ duration: isHovered ? 0 : 3, ease: "linear" }}
-                  style={{ width: isHovered ? "100%" : "auto" }}
-                />
-              </div>
-
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F2C] via-transparent to-transparent pointer-events-none z-10" />
-              {/* Slider Controls (Arrows) */}
-              <div className="absolute inset-0 flex items-center justify-between px-3 z-20 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <button
-                  onClick={handlePrev}
-                  className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#4A6CF7] transition-all transform hover:scale-110"
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#4A6CF7] transition-all transform hover:scale-110"
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
-              
-              <button
-                onClick={(e) => { e.stopPropagation(); setPreviewImage(images[currentIndex]); }}
-                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
-              >
-                <Maximize2 size={18} />
-              </button>
-            </div>
-
-            <div className="p-6 flex flex-col flex-1 border-t border-white/10 relative z-20">
-              <h3 className="text-xl font-bold text-white mb-2">Installations</h3>
-              <p className="text-sm text-gray-400 mb-6 flex-1">Explore our products deployed in real-world industrial environments.</p>
-              <button
-                onClick={() => setShowGrid(true)}
-                className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 px-5 py-3 rounded-xl transition-all border border-white/10 hover:border-white/30"
-              >
-                <Grid size={16} /> View Gallery
-              </button>
-            </div>
-          </div>
-
-          {/* Plant Video Card */}
-          <div
-            className="relative flex flex-col rounded-3xl overflow-hidden border border-[#06B6D4]/20 shadow-2xl shadow-cyan-900/10 fade-up hover:border-[#06B6D4]/40 transition-colors duration-300"
-            style={{ background: 'linear-gradient(160deg, #0D1840 0%, #0A0F2C 100%)', transitionDelay: '0.1s' }}
-            onMouseEnter={() => setIsVideoHovered(true)}
-            onMouseLeave={() => setIsVideoHovered(false)}
-          >
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-black group cursor-pointer" onClick={() => setShowVideo(true)}>
-              <AnimatePresence mode="wait">
-                <motion.video
-                  key={currentVideoIndex}
-                  src={plantVideos[currentVideoIndex].src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80"
-                />
-              </AnimatePresence>
-
-              {/* Top Progress Bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 z-20">
-                <motion.div
-                  key={currentVideoIndex + (isVideoHovered ? "-paused" : "")}
-                  className="h-full bg-gradient-to-r from-[#06B6D4] to-[#4A6CF7]"
-                  initial={{ width: "0%" }}
-                  animate={{ width: isVideoHovered ? "100%" : "100%" }}
-                  transition={{ duration: isVideoHovered ? 0 : 5, ease: "linear" }}
-                  style={{ width: isVideoHovered ? "100%" : "auto" }}
-                />
-              </div>
-
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F2C] via-transparent to-transparent pointer-events-none z-10" />
-              {/* Slider Controls (Arrows) */}
-              <div className="absolute inset-0 flex items-center justify-between px-3 z-20 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <button
-                  onClick={handlePrevVideo}
-                  className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#06B6D4] transition-all transform hover:scale-110"
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                <button
-                  onClick={handleNextVideo}
-                  className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#06B6D4] transition-all transform hover:scale-110"
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
-            </div>
-
-            <div className="p-6 flex flex-col flex-1 border-t border-white/10 relative z-20">
-              <h3 className="text-xl font-bold text-white mb-2">Plant Tour</h3>
-              <p className="text-sm text-gray-400 mb-6 flex-1">Take a look inside our state-of-the-art manufacturing facility.</p>
-              <button
-                onClick={() => setShowVideo(true)}
-                className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 px-5 py-3 rounded-xl transition-all border border-white/10 hover:border-white/30"
-              >
-                Watch Videos
-              </button>
-            </div>
-          </div>
-
-          {/* Stall Photos Card */}
-          <div
-            className="relative flex flex-col rounded-3xl overflow-hidden border border-[#4A6CF7]/20 shadow-2xl shadow-blue-900/10 fade-up hover:border-[#4A6CF7]/40 transition-colors duration-300"
-            style={{ background: 'linear-gradient(160deg, #0D1840 0%, #0A0F2C 100%)', transitionDelay: '0.2s' }}
-            onMouseEnter={() => setIsStallHovered(true)}
-            onMouseLeave={() => setIsStallHovered(false)}
-          >
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-black group cursor-pointer" onClick={() => setShowStallPhotos(true)}>
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentStallIndex}
-                  src={stallImages[currentStallIndex].src}
-                  alt={`Stall Photo ${stallImages[currentStallIndex].id}`}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80"
-                  onError={(e) => { e.currentTarget.src = 'https://images.pexels.com/photos/236750/pexels-photo-236750.jpeg?auto=compress&cs=tinysrgb&w=600' }}
-                />
-              </AnimatePresence>
-
-              {/* Top Progress Bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 z-20">
-                <motion.div
-                  key={currentStallIndex + (isStallHovered ? "-paused" : "")}
-                  className="h-full bg-gradient-to-r from-[#4A6CF7] to-[#06B6D4]"
-                  initial={{ width: "0%" }}
-                  animate={{ width: isStallHovered ? "100%" : "100%" }}
-                  transition={{ duration: isStallHovered ? 0 : 4, ease: "linear" }}
-                  style={{ width: isStallHovered ? "100%" : "auto" }}
-                />
-              </div>
-
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F2C] via-transparent to-transparent pointer-events-none z-10" />
-              {/* Slider Controls (Arrows) */}
-              <div className="absolute inset-0 flex items-center justify-between px-3 z-20 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <button
-                  onClick={handlePrevStall}
-                  className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#4A6CF7] transition-all transform hover:scale-110"
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                <button
-                  onClick={handleNextStall}
-                  className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#4A6CF7] transition-all transform hover:scale-110"
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
-            </div>
-
-            <div className="p-6 flex flex-col flex-1 border-t border-white/10 relative z-20">
-              <h3 className="text-xl font-bold text-white mb-2">Exhibition/ Events</h3>
-              <p className="text-sm text-gray-400 mb-6 flex-1">Check out our booths and product showcases from global expos.</p>
-              <button
-                onClick={() => setShowStallPhotos(true)}
-                className="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white bg-white/10 hover:bg-white/20 px-5 py-3 rounded-xl transition-all border border-white/10 hover:border-white/30"
-              >
-                View Photos
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
       </section>
 
       {/* Installations Grid Modal */}

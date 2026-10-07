@@ -169,7 +169,7 @@ const knownClients: Record<number, { name: string; category: string }> = {
   57: { name: 'Praj Industries', category: 'Engineering & EPC' },
   58: { name: 'Rallis India Limited', category: 'Chemicals & Fertilizers' },
   59: { name: 'SAIL', category: 'Steel Industry' },
-  60: { name: 'Shri Ram Fibres Limited', category: 'Chemicals & Fertilizers' },  
+  60: { name: 'Shri Ram Fibres Limited', category: 'Chemicals & Fertilizers' },
   61: { name: 'GVPR Engineers Limited', category: 'Engineering & EPC' },
   62: { name: 'SUEZ', category: 'Water & Environment' },
   63: { name: 'TANGEDCO', category: 'Power & Energy' },
@@ -516,7 +516,7 @@ const ClientsModalPanel: React.FC<ClientsModalPanelProps> = ({ isOpen, onClose, 
                       animation: `fade-in 0.3s ease-out ${index * 0.02}s both`,
                     }}
                   >
-                <div className="p-4 sm:p-5 rounded-2xl bg-slate-800/30 backdrop-blur-sm border border-blue-500/20 hover:bg-blue-500/10 hover:border-blue-400/40 transition-all duration-300 cursor-pointer hover:scale-[1.03] min-h-[220px] h-full flex flex-col items-center justify-start text-center group-hover:shadow-lg group-hover:shadow-blue-500/20">
+                    <div className="p-4 sm:p-5 rounded-2xl bg-slate-800/30 backdrop-blur-sm border border-blue-500/20 hover:bg-blue-500/10 hover:border-blue-400/40 transition-all duration-300 cursor-pointer hover:scale-[1.03] min-h-[220px] h-full flex flex-col items-center justify-start text-center group-hover:shadow-lg group-hover:shadow-blue-500/20">
                       <ClientLogo
                         id={client.id}
                         name={client.name}
@@ -556,11 +556,11 @@ const Clients: React.FC = () => {
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-8 text-center">
-          <div className="section-label mb-3">Our Clients</div>
+          {/* <div className="section-label mb-3">Our Clients</div> */}
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             Trusted by Industry Leaders
           </h2>
-          
+
           {/* Gradient underline accent */}
           <div className="flex justify-center items-center gap-2">
             <div className="h-1 w-12 bg-gradient-to-r from-transparent to-blue-400/35 rounded-full" />

@@ -55,7 +55,7 @@ export default function LeadForm() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="text-center mb-14 fade-up">
-          <div className="section-label mb-3">Get In Touch</div>
+          {/* <div className="section-label mb-3">Get In Touch</div> */}
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
             Contact{' '}
             <span

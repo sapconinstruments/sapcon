@@ -26,7 +26,7 @@ export default function Team() {
 
         {/* Header */}
         <div className="text-center mb-16 fade-up">
-          <div className="section-label mb-3">Meet Our Team</div>
+          {/* <div className="section-label mb-3">Meet Our Team</div> */}
           <h2 className="text-4xl lg:text-5xl font-bold text-[#050B1F] mb-4">
             The Minds Behind the{' '}
             <span

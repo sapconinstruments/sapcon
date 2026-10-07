@@ -379,7 +379,7 @@ export default function FeaturedProduct() {
       <section id="products" className="relative ambient-bg-dark py-20 lg:py-28">
         <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10">
           <div className="text-center fade-up visible mb-12 sm:mb-16">
-            <div className="section-label mb-3">Featured Product</div>
+            {/* <div className="section-label mb-3">Featured Product</div> */}
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
               Elixir
               <span

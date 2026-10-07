@@ -41,7 +41,7 @@ export default function RnD() {
         {/* Header */}
         <div className="max-w-4xl mb-16">
           <div className="fade-left">
-            <div className="section-label mb-3">Research & Development</div>
+            {/* <div className="section-label mb-3">Research & Development</div> */}
             <h2 className="text-4xl lg:text-5xl font-bold text-[#050B1F] mb-5">
               Innovation at the{' '}
               <span

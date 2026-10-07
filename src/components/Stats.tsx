@@ -115,7 +115,7 @@ export default function Stats() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-16 fade-up">
-          <div className="section-label mb-3">By the Numbers</div>
+          {/* <div className="section-label mb-3">By the Numbers</div> */}
           <h2 className="text-4xl lg:text-5xl font-bold text-[#050B1F] mb-4">
             Decades of{' '}
             <span
@@ -146,7 +146,7 @@ export default function Stats() {
           style={{ background: 'linear-gradient(135deg, rgba(74,108,247,0.08), rgba(6,182,212,0.04))' }}
         >
           <div className="max-w-4xl mx-auto text-center">
-            <div className="section-label mb-3 mx-auto">Manufacturing Excellence</div>
+            {/* <div className="section-label mb-3 mx-auto">Manufacturing Excellence</div> */}
             <h3 className="text-[#050B1F] text-2xl font-bold mb-3">
               Small Batch. Big Precision.
             </h3>

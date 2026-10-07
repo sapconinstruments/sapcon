@@ -122,93 +122,93 @@ export default function Industries() {
 
   return (
     <>
-    <section id="industries" className="relative ambient-bg py-20 lg:py-28 overflow-hidden">
+      <section id="industries" className="relative ambient-bg py-20 lg:py-28 overflow-hidden">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-        {/* Header */}
-        <div className="text-center mb-16 fade-up">
-          <div className="section-label mb-3">Industries We Serve</div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-[#050B1F] mb-4">
-            Built for Every{' '}
-            <span
-              style={{
-                background: 'linear-gradient(135deg, #4A6CF7, #06B6D4)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              Industry
-            </span>
-          </h2>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          {/* Header */}
+          <div className="text-center mb-16 fade-up">
+            {/* <div className="section-label mb-3">Industries We Serve</div> */}
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#050B1F] mb-4">
+              Built for Every{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #4A6CF7, #06B6D4)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Industry
+              </span>
+            </h2>
 
-        </div>
+          </div>
 
-        {/* Cards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
-          {industries.slice(0, 3).map((industry, i) => {
-            const Icon = industry.icon;
-            return (
-              <div key={industry.name} className="fade-up" style={{ transitionDelay: `${i * 0.06}s` }}>
-                <a
-                  href={industry.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group relative rounded-2xl p-6 overflow-hidden transition-all duration-300 cursor-pointer h-full hover:-translate-y-2"
-                  style={{
-                    background: 'linear-gradient(160deg, #0D1438 0%, #0A0F2C 100%)',
-                    border: `1px solid ${industry.color}60`,
-                    boxShadow: `0 0 20px ${industry.color}40, inset 0 0 15px ${industry.color}20`,
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.border = `1px solid ${industry.color}`;
-                    e.currentTarget.style.boxShadow = `0 0 35px ${industry.color}80, inset 0 0 25px ${industry.color}40`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.border = `1px solid ${industry.color}60`;
-                    e.currentTarget.style.boxShadow = `0 0 20px ${industry.color}40, inset 0 0 15px ${industry.color}20`;
-                  }}
-                >
-                  {/* Top corner accent */}
-                  <div
-                    className="absolute top-0 right-0 w-8 h-8 opacity-80"
-                    style={{ background: `linear-gradient(225deg, ${industry.color}60 0%, transparent 100%)` }}
-                  />
-
-                  {/* Icon */}
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative"
-                    style={{ background: `${industry.color}18`, border: `1px solid ${industry.color}30` }}
+          {/* Cards grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {industries.slice(0, 3).map((industry, i) => {
+              const Icon = industry.icon;
+              return (
+                <div key={industry.name} className="fade-up" style={{ transitionDelay: `${i * 0.06}s` }}>
+                  <a
+                    href={industry.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block group relative rounded-2xl p-6 overflow-hidden transition-all duration-300 cursor-pointer h-full hover:-translate-y-2"
+                    style={{
+                      background: 'linear-gradient(160deg, #0D1438 0%, #0A0F2C 100%)',
+                      border: `1px solid ${industry.color}60`,
+                      boxShadow: `0 0 20px ${industry.color}40, inset 0 0 15px ${industry.color}20`,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.border = `1px solid ${industry.color}`;
+                      e.currentTarget.style.boxShadow = `0 0 35px ${industry.color}80, inset 0 0 25px ${industry.color}40`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.border = `1px solid ${industry.color}60`;
+                      e.currentTarget.style.boxShadow = `0 0 20px ${industry.color}40, inset 0 0 15px ${industry.color}20`;
+                    }}
                   >
-                    <Icon size={22} style={{ color: industry.color }} />
-                  </div>
+                    {/* Top corner accent */}
+                    <div
+                      className="absolute top-0 right-0 w-8 h-8 opacity-80"
+                      style={{ background: `linear-gradient(225deg, ${industry.color}60 0%, transparent 100%)` }}
+                    />
 
-                  <h3 className="text-white font-bold text-base mb-2">{industry.name}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{industry.desc}</p>
-                </a>
-              </div>
-            );
-          })}
+                    {/* Icon */}
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 relative"
+                      style={{ background: `${industry.color}18`, border: `1px solid ${industry.color}30` }}
+                    >
+                      <Icon size={22} style={{ color: industry.color }} />
+                    </div>
+
+                    <h3 className="text-white font-bold text-base mb-2">{industry.name}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">{industry.desc}</p>
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* View All Button */}
+          <div className="mt-12 flex justify-center fade-up">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="btn-streak inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-xl shadow-xl transition-transform hover:-translate-y-1"
+              style={{ background: 'linear-gradient(135deg, #4A6CF7, #06B6D4)' }}
+            >
+              View All Industries <ArrowRight size={16} />
+            </button>
+          </div>
         </div>
 
-        {/* View All Button */}
-        <div className="mt-12 flex justify-center fade-up">
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="btn-streak inline-flex items-center gap-2 text-white font-semibold px-7 py-3.5 rounded-xl shadow-xl transition-transform hover:-translate-y-1"
-            style={{ background: 'linear-gradient(135deg, #4A6CF7, #06B6D4)' }}
-          >
-            View All Industries <ArrowRight size={16} />
-          </button>
-        </div>
-      </div>
-
-      {/* Bottom cut to dark */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
-        style={{ background: 'linear-gradient(-3deg, #0A0F2C 49.5%, transparent 50%)' }}
-      />
-    </section>
+        {/* Bottom cut to dark */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+          style={{ background: 'linear-gradient(-3deg, #0A0F2C 49.5%, transparent 50%)' }}
+        />
+      </section>
 
       {/* Industries Modal */}
       <AnimatePresence>
@@ -226,7 +226,7 @@ export default function Industries() {
               className="relative w-full max-w-6xl bg-[#0D1840] border border-white/10 rounded-2xl shadow-2xl overflow-hidden my-auto"
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4A6CF7] to-[#06B6D4]" />
-              
+
               <button
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-all z-10"
